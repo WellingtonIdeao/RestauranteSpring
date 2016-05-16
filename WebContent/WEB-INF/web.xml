@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>RestauranteManager</display-name>
+  <welcome-file-list>
+    <welcome-file>login</welcome-file>
+  </welcome-file-list> 
+  
+  <!-- cadastroCliente.jsp -->
+  <servlet>
+    <description></description>
+    <servlet-name>TelaCadastroCliente</servlet-name>
+    <jsp-file>/JSP/cadastroCliente.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaCadastroCliente</servlet-name>
+    <url-pattern>/cadastroCliente</url-pattern>
+  </servlet-mapping>
+  <!-- listarClientes.jsp -->
+  <servlet>
+    <description></description>
+    <servlet-name>TelaListarCliente</servlet-name>
+    <jsp-file>/JSP/listarClientes.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaListarCliente</servlet-name>
+    <url-pattern>/listarClientes</url-pattern>
+  </servlet-mapping>
+  
+  
+   <!--cadastroPromocao.jsp --> 
+  <servlet>
+    <description></description>
+    <servlet-name>TelaCadastroPromocao</servlet-name>
+    <jsp-file>/JSP/cadastroPromocao.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaCadastroPromocao</servlet-name>
+    <url-pattern>/cadastroPromocao</url-pattern>
+  </servlet-mapping>
+  
+  <!--listarPromocoes.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaListarPromocao</servlet-name>
+    <jsp-file>/JSP/listarPromocoes.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaListarPromocao</servlet-name>
+    <url-pattern>/listarPromocoes</url-pattern>
+  </servlet-mapping>
+  
+   <!--cadastroCategoria.jsp --> 
+  <servlet>
+    <description></description>
+    <servlet-name>TelaCadastroCategoria</servlet-name>
+    <jsp-file>/JSP/cadastroCategoria.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaCadastroCategoria</servlet-name>
+    <url-pattern>/cadastroCategoria</url-pattern>
+  </servlet-mapping>
+  
+  <!--listarCategorias.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaListarCategoria</servlet-name>
+    <jsp-file>/JSP/listarCategorias.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaListarCategoria</servlet-name>
+    <url-pattern>/listarCategorias</url-pattern>
+  </servlet-mapping>
+  
+   <!--cadastroCardapio.jsp --> 
+  <servlet>
+    <description></description>
+    <servlet-name>TelaCadastroCardapio</servlet-name>
+    <jsp-file>/JSP/cadastroCardapio.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaCadastroCardapio</servlet-name>
+    <url-pattern>/cadastroCardapio</url-pattern>
+  </servlet-mapping>
+  
+  <!--listarCardapios.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaListarCardapio</servlet-name>
+    <jsp-file>/JSP/listarCardapios.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaListarCardapio</servlet-name>
+    <url-pattern>/listarCardapios</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!--efetuarDelivery.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaListarDelivery</servlet-name>
+    <jsp-file>/JSP/efetuarDelivery.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaListarDelivery</servlet-name>
+    <url-pattern>/efetuarDelivery</url-pattern>
+  </servlet-mapping>
+ 
+  <!--login.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaLogin</servlet-name>
+    <jsp-file>/JSP/login.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaLogin</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+ 
+  <!--logout.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaLogout</servlet-name>
+    <jsp-file>/JSP/logout.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaLogout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+ 
+ 
+ <!--index.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaIndex</servlet-name>
+    <jsp-file>/JSP/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaIndex</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+ 
+ <!--telaCliente.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaCliente</servlet-name>
+    <jsp-file>/JSP/telaCliente.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaCliente</servlet-name>
+    <url-pattern>/telaCliente</url-pattern>
+  </servlet-mapping>
+  
+  
+ <!--telaFuncionario.jsp --> 
+ <servlet>
+    <description></description>
+    <servlet-name>TelaFuncionario</servlet-name>
+    <jsp-file>/JSP/telaFuncionario.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelaFuncionario</servlet-name>
+    <url-pattern>/telaFuncionario</url-pattern>
+  </servlet-mapping>
+ 
+ 
+  
+</web-app>

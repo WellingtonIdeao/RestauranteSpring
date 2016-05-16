@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+
+.controle_restaurante{
+width:100%;
+border:solid 1px #636363;	
+}
+
+h1{
+font-size:20px;
+padding:0px;
+text-align:center;	
+}
+
+h2{
+font-size:20px;
+margin-top:1px;
+margin-bottom:10px;
+padding:0px;
+text-align:justify;	
+border-bottom:solid 1px #636363;
+}
+
+h3{
+font-size:12px;
+text-align:right;
+margin-right:10px;
+}
+
+.menu{
+width:100%;
+border:solid 1px #636363;
+}
+
+.menuPedido{
+float:left;
+}
+.sair{
+float:right;
+}
+
+.linha{
+text-align:center;
+width:100%;
+margin-top:10px;
+float:left;
+}
+
+.status{
+width:220px;
+}
+
+.novoPedio{
+width:100%;
+margin-top:15px;
+float:left;
+margin-bottom:15px;
+}
+
+.rodaPe{
+margin-top:70px;
+text-align:center;
+height:auto;
+border:solid 1px #636363;
+padding:15px;
+}
+
+.meusPedidos1{
+margin:70px auto;
+height:auto;
+border:solid 1px #636363;
+padding:15px;
+}
+
+.tabela{
+}

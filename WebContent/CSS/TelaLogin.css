@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+/*margin:0;
+padding:0;*/
+}
+.Login{
+padding:10px;
+}
+
+.Senha{
+padding:9px;
+}
+
+.formulario_login{
+margin:100px auto;
+width:270px;
+height:auto;
+border:solid 1px #636363;
+padding:15px;
+}
+
+.linha{
+width:100%;
+margin-top:20px;
+text-align:center;
+}
+
+.botao{
+margin-top:20px;	
+height:22px;
+background-color:#FFFFFF;
+}
+.botao1{
+float:left;
+margin-left:25px;
+}
+.botao2{
+float:right;
+margin-right:25px;
+}

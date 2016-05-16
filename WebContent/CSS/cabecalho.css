@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+h1{
+font-size:30px;
+padding:0px;
+text-align:center;	
+}
+
+.controle_restaurante{
+width:100%;
+border:solid 1px #636363;	
+}

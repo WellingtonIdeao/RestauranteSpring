@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+h2{
+font-size:20px;
+margin-top:1px;
+margin-bottom:10px;
+padding:0px;
+text-align:justify;	
+border-bottom:solid 1px #636363;
+}
+
+h3{
+font-size:12px;
+text-align:right;
+margin-right:10px;
+}
+
+.novaCategoria{
+margin:95px auto;
+height:130px;
+border:solid 1px #636363;
+padding:15px;
+}
+
+.linha{
+text-align:center;
+width:100%;
+margin-top:20px;
+float:left;
+}
+
+.status{
+width:220px;
+}

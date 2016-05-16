@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+.cadastro_Promocao{
+margin:95px auto;
+height:130px;
+border:solid 1px #636363;
+padding:15px;
+}
+
+h2{
+font-size:20px;
+margin-top:1px;
+margin-bottom:10px;
+padding:0px;
+text-align:justify;	
+border-bottom:solid 1px #636363;
+}

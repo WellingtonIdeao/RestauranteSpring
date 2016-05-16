@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+h2{
+font-size:20px;
+margin-top:1px;
+margin-bottom:10px;
+padding:0px;
+text-align:justify;	
+border-bottom:solid 1px #636363;
+}
+
+.cadastro_Cliente{
+margin:70px auto;
+height:180px auto;
+border:solid 1px #636363;
+padding:15px;
+}
+
+.linha{
+text-align:left;
+width:100%;
+margin-top:20px;
+float:left;
+}
+
+.botao1{
+text-align:center;	
+}
+
+.botao2{
+text-align:right;
+}
