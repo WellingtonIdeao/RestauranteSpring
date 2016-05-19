@@ -3,17 +3,19 @@ package dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import model.EntityGeneric;
 
 public abstract class PadraoDAO<T extends EntityGeneric> {
-
+	
+	@PersistenceContext
 	protected EntityManager manager;
 
-	public void setManager(EntityManager manager) {
-		this.manager = manager;
-	}
+//	public void setManager(EntityManager manager) {
+//		this.manager = manager;
+//	}
 
 	public void inserir(T entity) {
 		manager.persist(entity);

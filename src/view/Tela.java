@@ -47,8 +47,8 @@ public class Tela {
 		
 		//CADASTRAR CLIENTE//
 		
-		Cliente c = new Cliente();
-		ClienteService cService = new ClienteService();
+//		Cliente c = new Cliente();
+//		ClienteService cService = new ClienteService();
 		
 		//CADASTRA
 //		c.setNome("guga");
@@ -74,12 +74,12 @@ public class Tela {
 		
 		// CADASTRAR MESA
 		
-		Mesa m = new Mesa();
-		MesaService mService = new MesaService();
-		//CADASTRA
-		m.setCapacidade(6);
-		m.setDescricao("Mesa 1");
-		mService.inserir(m);
+//		Mesa m = new Mesa();
+//		MesaService mService = new MesaService();
+//		//CADASTRA
+//		m.setCapacidade(6);
+//		m.setDescricao("Mesa 1");
+//		mService.inserir(m);
 //		System.out.println(mService.listar());
 		
 		//ATUALIZA
@@ -101,7 +101,7 @@ public class Tela {
 		CategoriaService caService = new CategoriaService();
 		
 //		CADASTRA
-		ca.setNome("Doces");
+		ca.setNome("Doces123");
 		caService.inserir(ca);
 		System.out.println(caService.listar());
 		
@@ -119,9 +119,9 @@ public class Tela {
 //		System.out.println(caService.listar());
 		
 				
-		//CADASTRAR RESERVA
-		Reserva re = new Reserva();
-		ReservaService reService = new ReservaService();
+//		//CADASTRAR RESERVA
+//		Reserva re = new Reserva();
+//		ReservaService reService = new ReservaService();
 //		Mesa me = new Mesa();
 //		MesaService ms = new MesaService();
 //		me.setId(2);
@@ -147,8 +147,8 @@ public class Tela {
 		
 		
 		//CADASTRAR PROMOCAO
-		Promocao promocao = new  Promocao();
-		PromocaoService proService = new PromocaoService();
+//		Promocao promocao = new  Promocao();
+//		PromocaoService proService = new PromocaoService();
 		
 		//CADASTRA
 //		promocao.setDescricao("Final da Ano");
@@ -169,12 +169,12 @@ public class Tela {
 //		System.out.println(proService.listar());
 		
 		//PRODUTO
-		Produto produto = new Cardapio();
-		ProdutoService prodService = new ProdutoService();
-		Categoria cat = new Categoria();
-		CategoriaService cas = new CategoriaService();
-		Promocao promo = new Promocao();
-		PromocaoService promocaoService = new PromocaoService();
+//		Produto produto = new Cardapio();
+//		ProdutoService prodService = new ProdutoService();
+//		Categoria cat = new Categoria();
+//		CategoriaService cas = new CategoriaService();
+//		Promocao promo = new Promocao();
+//		PromocaoService promocaoService = new PromocaoService();
 //		//CADASTRAR
 //		produto.setId(5);
 //		produto.setNome("guaraná");

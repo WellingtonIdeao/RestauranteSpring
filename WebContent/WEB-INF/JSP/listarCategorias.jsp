@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="model.Categoria,java.util.List" %>    
+<%@ page import="model.Categoria,java.util.List" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- para estruturas de controle e repetição e setar variáveis -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %> <!-- para formatações -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  <!-- para funções -->   
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +27,7 @@
 				alert('<%=mensagem%>');
 			</script>
 		<%}
-		List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
+		
 		String isAtivo = null;
 		%>
 		
@@ -42,29 +46,39 @@
 					<td>Status</td>
 					
 				</tr>
-			<%
-				for (Categoria c : categorias) {
-			%>
+			<c:forEach var="cat" items= "${categorias}">
 				<tr>
-					<td><%=c.getNome()%></td>
-				<%if(c.isAtivo())
-				isAtivo = "Ativo";
-				else 
-				isAtivo = "Desativo";
-				%>
-					<td><%=isAtivo%></td>	
-					<td><a href='removerCategoriaServlet?id=<%=c.getId()%>'>remover</a>
-					<a href="cadastroCategoriaServlet?id=<%=c.getId()%>">editar</a></td>
+					<td>${cat.nome}</td>
+					<td>
+					<c:choose>
+						<c:when test="${cat.isAtivo()}">
+							<c:out value = "Ativo"/>
+						</c:when>	
+						<c:otherwise >
+							<c:out value = "Desativo"/>
+						</c:otherwise>
+					</c:choose>	
+					</td>
 				</tr>
-			<%
-			}
-			%>
+				
+			</c:forEach>
+
 			</tbody>
 		</table>
 		</div>
 		</div>
-	
+		
+		
 	<%@ include file="../HTML/rodape.html"%>
 		
+		<!--if(c.isAtivo())
+				isAtivo = "Ativo";
+				else 
+				isAtivo = "Desativo";
+				<td><isAtivo%></td> 
+			<td><a href='removerCategoriaServlet?id=<c.getId()>'>remover</a>
+					<a href="cadastroCategoriaServlet?id=<c.getId()%>">editar</a></td>	
+				-->
+	
 </body>
 </html>

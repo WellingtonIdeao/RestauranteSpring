@@ -1,19 +1,18 @@
 package service;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import dao.ProdutoDAO;
 import model.Produto;
 
+@Service
+@Transactional
 public class ProdutoService extends AbstractService<Produto> {
-
-	public ProdutoService() {
-		this.dao = new ProdutoDAO();
-	}
 
 	@Override
 	public void inserir(Produto p) {
 		manager = fac.createEntityManager();
 		try {
-			dao.setManager(manager);
 			// se o produto for nulo
 			if (p == null)
 				throw new Exception("Entidade passada para inserção é nula");
@@ -39,7 +38,6 @@ public class ProdutoService extends AbstractService<Produto> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
 			// se entidade for nula
 			if (p == null)
 				throw new Exception("Entidade passada para atualização é nula");

@@ -1,25 +1,23 @@
 package service;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import dao.ItemPedidoDAO;
-import dao.TradicionalDAO;
 import model.ItemPedido;
 import model.Tradicional;
 
+@Service
+@Transactional
 public class TradicionalService extends AbstractService<Tradicional> {
-
-	public TradicionalService() {
-		this.dao = new TradicionalDAO();
-	}
+	@Autowired
+	private ItemPedidoDAO ipdao;
+	
 
 	@Override
 	public void inserir(Tradicional t) {
 		manager = fac.createEntityManager();
 
 		try {
-			dao.setManager(manager);
-			ItemPedidoDAO ipdao = new ItemPedidoDAO();
-			ipdao.setManager(manager);
-			
 			// se pedido for nulo
 			if (t == null) {
 				throw new Exception("Entidade passada para inserção é nula");
@@ -61,10 +59,6 @@ public class TradicionalService extends AbstractService<Tradicional> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
-			ItemPedidoDAO ipdao = new ItemPedidoDAO();
-			ipdao.setManager(manager);
-
 			// se entidade for nula
 			if (t == null) {
 				throw new Exception("Entidade passada para atualização é nula");
@@ -89,10 +83,6 @@ public class TradicionalService extends AbstractService<Tradicional> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
-			ItemPedidoDAO ipdao = new ItemPedidoDAO();
-			ipdao.setManager(manager);
-
 			// se entidade for nula
 			if (t == null) {
 				throw new Exception("Entidade passada para remoção é nula");

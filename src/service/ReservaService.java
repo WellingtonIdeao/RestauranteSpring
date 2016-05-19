@@ -1,20 +1,16 @@
 package service;
-
-import dao.ReservaDAO;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import model.Reserva;
 
+@Service
+@Transactional
 public class ReservaService extends AbstractService<Reserva> {
-
-	public ReservaService() {
-		this.dao = new ReservaDAO();
-	}
 
 	@Override
 	public void inserir(Reserva r) {
 		manager = fac.createEntityManager();
 		try {
-			dao.setManager(manager);
-
 			// se a entidade for nula
 			if (r == null)
 				throw new Exception("Entidade passada para inserção é nula");
@@ -40,8 +36,6 @@ public class ReservaService extends AbstractService<Reserva> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
-
 			// se reserva for nula
 			if (r == null) {
 				throw new Exception("Entidade passada para atualização é nula");

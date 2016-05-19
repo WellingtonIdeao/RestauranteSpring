@@ -1,4 +1,4 @@
-package servlet;
+package controller;
 
 import java.io.IOException;
 
@@ -7,19 +7,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Cardapio;
+import service.ProdutoService;
 
-import model.Categoria;
-import service.CategoriaService;
-@WebServlet("/removerCategoriaServlet")
-public class RemoverCategoriaServlet extends HttpServlet {
+@WebServlet("/removerCardapioServlet")
+public class RemoverCardapioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		CategoriaService catServ = new CategoriaService();
-		Categoria cat = new Categoria();
-		cat.setId(new Long(id));
-		catServ.remover(cat);
-		response.sendRedirect("listarCategoriaServlet");
+		ProdutoService ProServ = new ProdutoService();
+		Cardapio car = new Cardapio();
+		car.setId(new Long(id));
+		ProServ.remover(car);
+		response.sendRedirect("listarCardapioServlet");
 	}
 }

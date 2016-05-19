@@ -1,23 +1,21 @@
 package service;
 
-import dao.FuncionarioDAO;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import model.Funcionario;
 
+@Service
+@Transactional
 public class FuncionarioService extends AbstractService<Funcionario> {
 
-	public FuncionarioService() {
-
-		this.dao = new FuncionarioDAO();
-
-	}
+	
 
 	@Override
 	public void inserir(Funcionario f) {
 		manager = fac.createEntityManager();
 
 		try {
-
-			dao.setManager(manager);
 
 			// se o funcionario for nulo
 			if (f == null)
@@ -42,8 +40,6 @@ public class FuncionarioService extends AbstractService<Funcionario> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
-
 			// se entidade for nula
 			if (f == null) {
 				throw new Exception("Entidade passada para atualização é nula");

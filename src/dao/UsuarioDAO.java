@@ -1,11 +1,13 @@
 package dao;
-
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
 
 import model.Login;
 import model.Usuario;
 
+@Repository
 public class UsuarioDAO extends PadraoDAO<Usuario> {
 
 	@Override

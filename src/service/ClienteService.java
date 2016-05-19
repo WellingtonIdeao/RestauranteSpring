@@ -1,20 +1,18 @@
 package service;
-
-import dao.ClienteDAO;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import model.Cliente;
 
+@Service
+@Transactional
 public class ClienteService extends AbstractService<Cliente> {
 
-	public ClienteService() {
-		this.dao = new ClienteDAO();
-	}
 
 	@Override
 	public void inserir(Cliente c) throws Exception{
 		manager = fac.createEntityManager();
 
 		try {
-			dao.setManager(manager);
 			// se o cliente for nula
 			if (c == null)
 				throw new Exception("Entidade passada para inserção é nula");
@@ -42,7 +40,6 @@ public class ClienteService extends AbstractService<Cliente> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
 
 			// se entidade for nula
 			if (c == null) {

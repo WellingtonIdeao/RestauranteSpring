@@ -1,7 +1,9 @@
 package dao;
 
+import org.springframework.stereotype.Repository;
 import model.ItemPedido;
 
+@Repository
 public class ItemPedidoDAO extends PadraoDAO<ItemPedido> {
 
 	@Override

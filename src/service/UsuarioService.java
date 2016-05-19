@@ -1,21 +1,23 @@
 package service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import dao.UsuarioDAO;
 import model.Login;
 import model.Usuario;
 
+@Service
+@Transactional
 public class UsuarioService extends AbstractService<Usuario> {
-
-	public UsuarioService() {
-		this.dao = new UsuarioDAO();
-	}
+	
+	@Autowired
+	private UsuarioDAO userDAO;
+	
 	@Override
 	public void inserir(Usuario user) {
 		manager = fac.createEntityManager();
-		try {
-			UsuarioDAO userDAO =  new UsuarioDAO();
-			userDAO.setManager(manager);
-			
+		try {	
 			// se a categoria for nula
 			if (user == null)
 				throw new Exception("Entidade passada para inserção é nula");
@@ -43,10 +45,6 @@ public class UsuarioService extends AbstractService<Usuario> {
 			manager = fac.createEntityManager();
 			boolean ret = false;
 			try {
-				UsuarioDAO userDAO =  new UsuarioDAO();
-				userDAO.setManager(manager);
-				
-
 				// se entidade for nula
 				if (user == null) {
 					throw new Exception("Entidade passada para atualização é nula");
@@ -71,9 +69,6 @@ public class UsuarioService extends AbstractService<Usuario> {
 			manager = fac.createEntityManager();
 			Usuario user = null;
 			try {
-				UsuarioDAO userDAO =  new UsuarioDAO();
-				userDAO.setManager(manager);
-				
 				// se entidade for nula
 				if (login == null)
 					throw new Exception("Entidade passada para busca é nula");
@@ -96,9 +91,6 @@ public class UsuarioService extends AbstractService<Usuario> {
 			manager = fac.createEntityManager();
 			boolean exist = false;
 			try {
-				UsuarioDAO userDAO =  new UsuarioDAO();
-				userDAO.setManager(manager);
-				
 				// se entidade for nula
 				if (user == null)
 					throw new Exception("Entidade passada para busca é nula");

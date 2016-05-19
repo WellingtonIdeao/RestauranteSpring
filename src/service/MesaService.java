@@ -1,20 +1,17 @@
 package service;
 
-import dao.MesaDAO;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import model.Mesa;
 
-public class MesaService extends AbstractService<Mesa> {
-
-	public MesaService() {
-		this.dao = new MesaDAO();
-	}
+@Service
+@Transactional
+public class MesaService extends AbstractService<Mesa> {	
 
 	@Override
 	public void inserir(Mesa m) {
 		manager = fac.createEntityManager();
-		try {
-			dao.setManager(manager);
-			
+		try {	
 			// se a mesa for nula
 			if (m == null)
 				throw new Exception("Entidade passada para inserção é nula");
@@ -36,8 +33,6 @@ public class MesaService extends AbstractService<Mesa> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
-
 			// se entidade for nula
 			if (m == null) {
 				throw new Exception("Entidade passada para atualização é nula");

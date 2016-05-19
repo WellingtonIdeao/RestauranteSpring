@@ -1,26 +1,24 @@
 package service;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import dao.DeliveryDAO;
 import dao.ItemPedidoDAO;
 import model.Delivery;
 import model.ItemPedido;
 
+@Service
+@Transactional
 public class DeliveryService extends AbstractService<Delivery> {
-
-	public DeliveryService() {
-		this.dao = new DeliveryDAO();
-
-	}
-
+	
+	@Autowired
+	private ItemPedidoDAO ipdao;
+	
 	@Override
 	public void inserir(Delivery d) {
 		manager = fac.createEntityManager();
 
 		try {
-			dao.setManager(manager);
-			ItemPedidoDAO ipdao = new ItemPedidoDAO();
-			ipdao.setManager(manager);
-
 			// se o pedido for nulo
 			if (d == null)
 				throw new Exception("Entidade passada para inserção é nula");
@@ -59,10 +57,6 @@ public class DeliveryService extends AbstractService<Delivery> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
-			ItemPedidoDAO ipdao = new ItemPedidoDAO();
-			ipdao.setManager(manager);
-
 			// se entidade for nula
 			if (d == null) {
 				throw new Exception("Entidade passada para atualização é nula");
@@ -87,10 +81,6 @@ public class DeliveryService extends AbstractService<Delivery> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
-			ItemPedidoDAO ipdao = new ItemPedidoDAO();
-			ipdao.setManager(manager);
-
 			// se entidade for nula
 			if (d == null) {
 				throw new Exception("Entidade passada para remoção é nula");

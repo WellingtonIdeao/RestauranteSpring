@@ -1,26 +1,23 @@
 package service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import dao.ProdutoDAO;
-import dao.PromocaoDAO;
-import model.Cardapio;
 import model.Produto;
 import model.Promocao;
 
+@Service
+@Transactional
 public class PromocaoService extends AbstractService<Promocao> {
-
+	@Autowired
+	private ProdutoDAO prodao;
 	
-	public PromocaoService(){
-		this.dao = new PromocaoDAO();
-		
-	}
 	@Override
 	public void inserir(Promocao pr) {
 		manager = fac.createEntityManager();
 
 		try {
-			dao.setManager(manager);
-			ProdutoDAO prodao = new ProdutoDAO();
-			prodao.setManager(manager);
 			// se a promocão for nula
 			if (pr == null)
 				throw new Exception("Entidade passada para inserção é nula");
@@ -51,9 +48,6 @@ public class PromocaoService extends AbstractService<Promocao> {
 		manager = fac.createEntityManager();
 		boolean ret = false;
 		try {
-			dao.setManager(manager);
-			ProdutoDAO Pdao = new ProdutoDAO();
-			Pdao.setManager(manager);
 			// se entidade for nula
 			if (pr == null) {
 				throw new Exception("Entidade passada para atualização é nula");
@@ -61,7 +55,7 @@ public class PromocaoService extends AbstractService<Promocao> {
 			//se existir cardapios na promocao
 			if(!pr.getCardapios().isEmpty()){
 				for(Produto p: pr.getCardapios())
-					Pdao.atualizar(p);
+					prodao.atualizar(p);
 			}	
 			dao.atualizar(pr);
 			manager.getTransaction().begin();

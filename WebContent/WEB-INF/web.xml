@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>RestauranteManager</display-name>
-  <welcome-file-list>
+  <!--<welcome-file-list>
     <welcome-file>login</welcome-file>
-  </welcome-file-list> 
+  </welcome-file-list> -->
+ 
+ 	<servlet>
+	    <servlet-name>dispatcher</servlet-name>
+	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>dispatcher</servlet-name>
+	    <url-pattern>/</url-pattern>
+	</servlet-mapping>
+ 
+  <!-- cadastroCliente.jsp 
   
-  <!-- cadastroCliente.jsp -->
   <servlet>
     <description></description>
     <servlet-name>TelaCadastroCliente</servlet-name>
@@ -15,7 +26,8 @@
     <servlet-name>TelaCadastroCliente</servlet-name>
     <url-pattern>/cadastroCliente</url-pattern>
   </servlet-mapping>
-  <!-- listarClientes.jsp -->
+  
+   listarClientes.jsp
   <servlet>
     <description></description>
     <servlet-name>TelaListarCliente</servlet-name>
@@ -27,7 +39,7 @@
   </servlet-mapping>
   
   
-   <!--cadastroPromocao.jsp --> 
+   cadastroPromocao.jsp 
   <servlet>
     <description></description>
     <servlet-name>TelaCadastroPromocao</servlet-name>
@@ -38,7 +50,7 @@
     <url-pattern>/cadastroPromocao</url-pattern>
   </servlet-mapping>
   
-  <!--listarPromocoes.jsp --> 
+  listarPromocoes.jsp 
  <servlet>
     <description></description>
     <servlet-name>TelaListarPromocao</servlet-name>
@@ -49,7 +61,7 @@
     <url-pattern>/listarPromocoes</url-pattern>
   </servlet-mapping>
   
-   <!--cadastroCategoria.jsp --> 
+   cadastroCategoria.jsp 
   <servlet>
     <description></description>
     <servlet-name>TelaCadastroCategoria</servlet-name>
@@ -60,7 +72,7 @@
     <url-pattern>/cadastroCategoria</url-pattern>
   </servlet-mapping>
   
-  <!--listarCategorias.jsp --> 
+  listarCategorias.jsp 
  <servlet>
     <description></description>
     <servlet-name>TelaListarCategoria</servlet-name>
@@ -71,7 +83,7 @@
     <url-pattern>/listarCategorias</url-pattern>
   </servlet-mapping>
   
-   <!--cadastroCardapio.jsp --> 
+   cadastroCardapio.jsp  
   <servlet>
     <description></description>
     <servlet-name>TelaCadastroCardapio</servlet-name>
@@ -82,7 +94,7 @@
     <url-pattern>/cadastroCardapio</url-pattern>
   </servlet-mapping>
   
-  <!--listarCardapios.jsp --> 
+ listarCardapios.jsp 
  <servlet>
     <description></description>
     <servlet-name>TelaListarCardapio</servlet-name>
@@ -94,7 +106,7 @@
   </servlet-mapping>
   
   
-  <!--efetuarDelivery.jsp --> 
+  efetuarDelivery.jsp 
  <servlet>
     <description></description>
     <servlet-name>TelaListarDelivery</servlet-name>
@@ -105,7 +117,7 @@
     <url-pattern>/efetuarDelivery</url-pattern>
   </servlet-mapping>
  
-  <!--login.jsp --> 
+  login.jsp 
  <servlet>
     <description></description>
     <servlet-name>TelaLogin</servlet-name>
@@ -116,7 +128,7 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
  
-  <!--logout.jsp --> 
+  logout.jsp 
  <servlet>
     <description></description>
     <servlet-name>TelaLogout</servlet-name>
@@ -128,7 +140,7 @@
   </servlet-mapping>
  
  
- <!--index.jsp --> 
+ index.jsp 
  <servlet>
     <description></description>
     <servlet-name>TelaIndex</servlet-name>
@@ -139,7 +151,7 @@
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
  
- <!--telaCliente.jsp --> 
+ telaCliente.jsp 
  <servlet>
     <description></description>
     <servlet-name>TelaCliente</servlet-name>
@@ -151,7 +163,7 @@
   </servlet-mapping>
   
   
- <!--telaFuncionario.jsp --> 
+ telaFuncionario.jsp  
  <servlet>
     <description></description>
     <servlet-name>TelaFuncionario</servlet-name>
@@ -160,8 +172,7 @@
   <servlet-mapping>
     <servlet-name>TelaFuncionario</servlet-name>
     <url-pattern>/telaFuncionario</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> 
  
- 
-  
+   -->
 </web-app>
