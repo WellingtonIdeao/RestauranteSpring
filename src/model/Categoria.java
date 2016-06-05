@@ -34,11 +34,11 @@ public class Categoria implements EntityGeneric {
 		return this.id;
 	}
 	
-	public boolean isAtivo() {
+	public boolean getIsAtivo() {
 		return isAtivo;
 	}
 
-	public void setAtivo(boolean isAtivo) {
+	public void setIsAtivo(boolean isAtivo) {
 		this.isAtivo = isAtivo;
 	}
 

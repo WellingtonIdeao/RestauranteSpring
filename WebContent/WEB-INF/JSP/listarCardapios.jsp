@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List,model.Produto, model.Cardapio"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- para estruturas de controle e repetição e setar variáveis -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %> <!-- para formatações -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  <!-- para funções -->   
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,40 +16,30 @@
 </head>
 <body>
 	<%@ include file="../HTML/cabecalho.html"%>
-	
+	<c:url  var = "url" value ="/produtoController/criar"/>
+	<c:url var= "urlFiltro" value="/produtoController/filtrar"/>
+	<c:url var= "urlIndex" value="/funcionarioController/index"/>
 	
 	<br />
-		<% 
-			String mensagem = (String) request.getAttribute("mensagem");
-			if(mensagem != null){
-		%>		
-			<script>
-				alert('<%=mensagem%>');
-			</script>
-		<% 		
-			}
-		%>
-	
 		<div class="cardapio1">
 		<h2>Cardápio</h2>
-		<div class="linha">
+		<form:form method="get" action="${urlFiltro}" modelAttribute="filtro">
+			<div class="linha">
     	<label>Filtrar por:</label>
     		<filter class="filter" id="filter">
-				<input placeholder="Descrição" type="text" min="0" size="25" maxlength="25">
+				<form:input path ="nome" placeholder="Nome" type="text" min="0" size="25" maxlength="25"/>
 			</filter>
-        
-        <label>Status:</label>
-			
-    	</select>
-                
-    	<pesquisa class="pesquisa" id="pesquisa">
-			<input type="submit" onClick="" value="Pesquisar">
-		</pesquisa>
+			<form:select path="categoria" items="${selectCategoria}"></form:select>
+        </form:form>
+        <label>Status:</label>   
+    		<pesquisa class="pesquisa" id="pesquisa">
+				<input type="submit" onClick="" value="Pesquisar">
+			</pesquisa>
         </div>
         
 		<div class="novo">
-		<a href='index' target="_self" class="btn">Home</a>
-   		<a href='cadastroCardapioServlet' target="_self" class="btn">Novo Cardapio</a>
+		<a href='${urlIndex}' target="_self" class="btn">Home</a>
+   		<a href="${url}" target="_self" class="btn">Novo Cardapio</a>
    		</div>
 	
     	<div class="tabela">
@@ -58,26 +53,25 @@
         				<td>Promoção</td>
                     	<td>Ações</td>
         			</tr>
-        	<%
-		   	List<Produto> cardapios =(List<Produto>)request.getAttribute("cardapios");
-			String isAtivo = null;
-			%>
 			
-			<%for (Produto p : cardapios) {
-			Cardapio c = (Cardapio)p;
-			%>
-                	<tr>
-        				<td><%=c.getNome()%> </td>
-						<td><%=c.getPreco()%></td>
-						<td><%=c.isAtivo()?"Ativo":"Desativo"%></td>			
-						<td><%=c.getCategoria()%></td>
-						<td><%=c.getPromocao()%></td>
+			<c:forEach var ="c" items= "${cardapios}">
+			    	<tr>
+        				<td>${c.nome} </td>
+						<td>${c.preco}</td>
+						<td><c:choose>
+								<c:when test ="${c.isAtivo}"><c:out value ="Ativo"/></c:when>
+								<c:otherwise><c:out value ="Desativo"/></c:otherwise>
+							</c:choose>
+						</td>			
+						<td>${c.categoria}</td>
+						<td>${c.promocao}</td>
 					<td>
-						<a href='removerCardapioServlet?id=<%=c.getId()%>'>remover</a>
-						<a href='cadastroCardapioServlet?id=<%=c.getId()%>'>editar</a>
+						<a href='<c:url value="/produtoController/${c.id}/atualizar"/>'>Editar</a>
+						<a href='<c:url value ="/produtoController/${c.id}/remover"/>'>remover</a>
+						
 					</td>
         			</tr>
- 			<%} %>				
+ 			</c:forEach>				
 			</tbody>        
 		</table>
 		</div>

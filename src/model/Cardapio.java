@@ -36,7 +36,7 @@ public class Cardapio extends Produto {
 	@Override
 	public void update(Observable o) {
 		if(o instanceof Promocao){
-			BigDecimal desconto = ((Promocao) o).getDesconto();
+			BigDecimal desconto = ((Promocao) o).getValor();
 			//				 
 			//	precoAtual-	desconto = 	(precoAtual*PerDesconto/100)
 			setPreco(getPreco().subtract(getPreco().multiply(desconto.divide(new BigDecimal("100")))));

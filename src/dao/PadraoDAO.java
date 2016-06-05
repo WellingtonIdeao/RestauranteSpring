@@ -42,4 +42,5 @@ public abstract class PadraoDAO<T extends EntityGeneric> {
 	}
 	
 	public abstract Class<T> entityClass();
+
 }

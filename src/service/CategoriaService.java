@@ -102,5 +102,8 @@ public class CategoriaService extends AbstractService<Categoria> {
 		return cat.getClass().getSimpleName();
 
 	}
+	public List<Categoria> buscarFiltro(Categoria filtro){
+		return  dao.buscarFiltro(filtro);
+	}
 
 }

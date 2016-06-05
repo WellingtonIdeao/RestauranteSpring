@@ -23,6 +23,10 @@ public class Usuario implements EntityGeneric {
 	private String nome;
 	private String email;
 	private String telefone;
+	
+	public Usuario(){
+		this.login = new Login();
+	}
 
 	@Override
 	public void setId(long id) {
@@ -32,6 +36,10 @@ public class Usuario implements EntityGeneric {
 	@Override
 	public long getId() {
 		return this.id;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 
 	public Login getLogin() {

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="model.Categoria"%>   
+<%@ page import="model.Categoria"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- para estruturas de controle e repetição e setar variáveis -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %> <!-- para formatações -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  <!-- para funções -->   
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,25 +16,25 @@
 </head>
 <body>
 <%@ include file="../HTML/cabecalho.html"%>
-		<%Categoria categoria = (Categoria)request.getAttribute("categoria");
-		%>
-		<form method = 'post' action="cadastroCategoriaServlet">
-			<input type='hidden' name='id' value="<%=categoria == null ? "" : categoria.getId()%>"/>
+		<c:url var="url" value ="/categoriaController/salvar"/>
+		
+		<form:form method = "post" action="${url}" modelAttribute ="categoria">
+			<form:hidden path ="id"/>
 		
 	<div class="novaCategoria">
-	<h2>Nova Categoria</h2>
+	<h2>Categoria</h2>
 
 	<div class="linha">
     <label>Nome:</label>
     <cat class="newCat" id="newCat">
-		<input placeholder="Categoria" name="nome" type="text" size="25" maxlength="25" value="<%=categoria == null?"":categoria.getNome()%>">
+		<form:input path="nome" placeholder="Categoria"  type="text" size="25" maxlength="25" />
 	</cat>
     
     <label>Status:</label>
-	<select name = statusSelected>	
-		<option value ="<%=true%>">Ativo</option>	
-		<option value ="<%=false%>">Desativo</option>
-	</select>
+	<form:select path = "isAtivo" >
+		 <form:option value = "true" label="Ativo" ></form:option>	
+		 <form:option value = "false" label="Desativo"></form:option>	 
+	</form:select>
 	</div>
     
     <div class="linha">
@@ -39,13 +44,12 @@
         </add>
             
 		<voltar class="Voltar" id="voltar">
-			<a href ="listarCategoriaServlet" target="_self" class="btn">Voltar</a>
+			<a href = '<c:url value="/categoriaController/listar"/>' target="_self" class="btn">Voltar</a>
 		</voltar>
     	</div>
 	</div>
-
 	</div>
-		</form>
+	</form:form>
 		<%@ include file="../HTML/rodape.html"%>
 </body>
 </html>

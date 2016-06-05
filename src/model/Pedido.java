@@ -29,6 +29,7 @@ public abstract class Pedido implements EntityGeneric {
 	private long id;
 	private String telefone;
 	private Status status;
+	private String tipo;
 
 	@Temporal(TemporalType.DATE)
 	private Date data;
@@ -40,6 +41,7 @@ public abstract class Pedido implements EntityGeneric {
 		this.itens = new ArrayList<>();
 		Calendar calendar = Calendar.getInstance();
 		this.data = calendar.getTime();
+		this.status = Status.PENDENTE;
 
 	}
 
@@ -61,8 +63,8 @@ public abstract class Pedido implements EntityGeneric {
 		this.telefone = telefone;
 	}
 
-	public void setItens(List<ItemPedido> itens) {
-		this.itens = itens;
+	public void setItens(ItemPedido itens) {
+		this.itens.add(itens);
 	}
 
 	public Date getData() {
@@ -89,10 +91,13 @@ public abstract class Pedido implements EntityGeneric {
 		this.itens.add(item);
 		this.total();
 	}
-	public void removerProduto(int index){
-		this.itens.remove(index);
+
+	public void removerProduto(int id) {
+		this.itens.remove(id);
+
 	}
-	public int produtoPosition(ItemPedido item){
+
+	public int produtoPosition(ItemPedido item) {
 		return this.itens.indexOf(item);
 	}
 
@@ -103,7 +108,6 @@ public abstract class Pedido implements EntityGeneric {
 		this.itens.add(item);
 		this.total();
 	}
-	
 
 	public BigDecimal total() {
 		BigDecimal total = new BigDecimal("0");
@@ -112,6 +116,14 @@ public abstract class Pedido implements EntityGeneric {
 		}
 		return total;
 
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }

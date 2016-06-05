@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="model.Categoria,java.util.List" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> <!-- para estruturas de controle e repetição e setar variáveis -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt" %> <!-- para formatações -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  <!-- para funções -->   
@@ -15,29 +16,23 @@
 </head>
 <body>
 		<%@ include file="../HTML/cabecalho.html"%>
+		<c:url  var = "url" value ="/categoriaController/criar"/>
+		<c:url var= "urlFiltro" value="/categoriaController/filtrar"/>
+		
 		<div class="Categorias">
 		<h2>Categoria</h2>
 		<a href='index' target="_self" class="btn">Home</a>
-		<a href="cadastroCategoria" target="_self" class="btn">Nova Categoria</a>
-		<% 
-			String mensagem = (String) request.getAttribute("mensagem");
-			if(mensagem != null){
-		%>		
-			<script>
-				alert('<%=mensagem%>');
-			</script>
-		<%}
+		<a href="${url}" target="_self" class="btn">Nova Categoria</a>
 		
-		String isAtivo = null;
-		%>
-		
+		<form:form method="get" action="${urlFiltro}" modelAttribute="filtro">							
 		<div class="linha">
     	<label>Filtrar por:</label>
-    	<input placeholder="Descrição" type="text" min="0" size="25" maxlength="25">
+    	<form:input path ="nome" placeholder="Descrição" type="text" min="0" size="25" maxlength="25"/>
     	<input type="submit" value="Pesquisar" target="_self" class="btn">
     	</div>
-    	
-		
+    	</form:form>
+					
+					
 		<div class="tabela">
 		<table width="100%" border="1">
 			<tbody>
@@ -51,13 +46,17 @@
 					<td>${cat.nome}</td>
 					<td>
 					<c:choose>
-						<c:when test="${cat.isAtivo()}">
+						<c:when test="${cat.getIsAtivo()}">
 							<c:out value = "Ativo"/>
 						</c:when>	
 						<c:otherwise >
 							<c:out value = "Desativo"/>
 						</c:otherwise>
 					</c:choose>	
+					</td>
+					<td>
+						<a href='<c:url value="/categoriaController/${cat.id}/atualizar"/>'>Editar</a>
+						<a href='<c:url value="/categoriaController/${cat.id}/remover"/>'>Excluir</a>
 					</td>
 				</tr>
 				
@@ -71,14 +70,5 @@
 		
 	<%@ include file="../HTML/rodape.html"%>
 		
-		<!--if(c.isAtivo())
-				isAtivo = "Ativo";
-				else 
-				isAtivo = "Desativo";
-				<td><isAtivo%></td> 
-			<td><a href='removerCategoriaServlet?id=<c.getId()>'>remover</a>
-					<a href="cadastroCategoriaServlet?id=<c.getId()%>">editar</a></td>	
-				-->
-	
 </body>
 </html>

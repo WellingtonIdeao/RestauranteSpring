@@ -22,12 +22,12 @@ public abstract class Produto implements EntityGeneric, Observer {
 	@Column(name = "prod_id")
 	private long id;
 	
-	private String nome;
-	private BigDecimal preco;
-	private boolean isAtivo;
+	protected String nome;
+	protected BigDecimal preco;
+	protected boolean isAtivo;
 	
 	@ManyToOne
-	private Categoria categoria;
+	protected Categoria categoria;
 	
 	@Override
 	public void setId(long id) {
@@ -67,11 +67,11 @@ public abstract class Produto implements EntityGeneric, Observer {
 	}
 	
 
-	public boolean isAtivo() {
+	public boolean getIsAtivo() {
 		return isAtivo;
 	}
 
-	public void setAtivo(boolean isAtivo) {
+	public void setIsAtivo(boolean isAtivo) {
 		this.isAtivo = isAtivo;
 	}
 

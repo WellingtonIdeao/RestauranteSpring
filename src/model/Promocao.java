@@ -21,7 +21,7 @@ public class Promocao implements Observable, EntityGeneric {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "promoc_id")
 	@Column(name = "promoc_id")
 	private long id;
-	private String descricao;
+	private String nome;
 
 	@OneToMany(mappedBy = "promocao", fetch = FetchType.EAGER)
 	private List<Cardapio> cardapios;
@@ -89,23 +89,23 @@ public class Promocao implements Observable, EntityGeneric {
 		return changed;
 	}
 
-	public BigDecimal getDesconto() {
+	public BigDecimal getValor() {
 		return this.valor;
 	}
 
-	public void setDesconto(BigDecimal valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 		setChanged();
 		notifyObservers();
 	}
 
 		
-	public String getDescricao() {
-		return descricao;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	public List<Cardapio> getCardapios() {
@@ -114,7 +114,7 @@ public class Promocao implements Observable, EntityGeneric {
 
 	@Override
 	public String toString() {
-		return getDescricao();
+		return getNome();
 	}
 
 

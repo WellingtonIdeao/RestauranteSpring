@@ -10,6 +10,7 @@ public class Delivery extends Pedido {
 	@ManyToOne
 	private Cliente cliente;
 
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -26,11 +27,9 @@ public class Delivery extends Pedido {
 		this.trocoPara = trocoPara;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Id: "+getId()+" Data: "+getData()+" Total: "+getPrecoPedido()+" Status: "+getStatus()+" Cliente: "+this.cliente.getNome()+
-//				" Tipo: "+getClass().getSimpleName()+"\n";
-//	}
-
+	@Override
+	public String toString() {
+		return Delivery.class.getSimpleName();
+	}
 			
 }
