@@ -25,7 +25,8 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	       
 	       if(uri.endsWith("loginForm")|| uri.endsWith("logar")|| uri.endsWith("clienteController/criar") ||uri.endsWith("clienteController/salvar")){
 	           return true; 
-	       } 
+	       }
+    	  
 	       if(session.getAttribute("sessaoUsuario") != null ) {
 	    	   	urls = urlPermitidas(session);
 	    	   for(String u: urls.values()){

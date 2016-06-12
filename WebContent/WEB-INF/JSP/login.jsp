@@ -10,8 +10,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Tela Login</title>
-<link href="CSS/TelaLogin.css" style="text" rel="stylesheet">
-<link href="CSS/botao.css" style="text" rel="stylesheet">
+<link rel="stylesheet" href="<c:url value="/CSS/TelaLogin.css" />">
+<link rel="stylesheet" href="<c:url value="/CSS/botao.css" />">
 </head>
 <body>
 		<%@ include file="../HTML/cabecalho.html"%>

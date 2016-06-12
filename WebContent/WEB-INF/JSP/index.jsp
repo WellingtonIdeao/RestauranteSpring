@@ -11,9 +11,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home</title>
-<link href="CSS/botao.css" style="text" rel="stylesheet">
-<link href="CSS/Index.css" style="text" rel="stylesheet">
-
+<link rel="stylesheet" href="<c:url value="/CSS/botao.css" />">
+<link rel="stylesheet" href="<c:url value="/CSS/.css" />">
 </head>
 <body>
 		<%@ include file="../HTML/cabecalho.html"%>

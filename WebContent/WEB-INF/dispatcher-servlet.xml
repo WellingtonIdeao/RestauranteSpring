@@ -34,7 +34,6 @@
     <mvc:annotation-driven />
     <mvc:default-servlet-handler />
     
-   
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver" />
         <property name="url" value="jdbc:postgresql://localhost/unipeWeb" />
@@ -70,8 +69,14 @@
     <bean id="persistenceExceptionTranslationPostProcessor"
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 	
-	<mvc:interceptors> 
-       <bean class="interceptors.AutorizadorInterceptor" /> 
-    </mvc:interceptors>	
+	<mvc:resources mapping="/CSS/**" location="/WEB-INF/CSS/" />
+	<mvc:interceptors>
+		<mvc:interceptor> 
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/CSS/**"/>
+	     	<bean class="interceptors.AutorizadorInterceptor" />
+	    </mvc:interceptor> 	      
+	</mvc:interceptors>
+    	
  
 </beans>
